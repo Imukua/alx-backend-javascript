@@ -28,10 +28,16 @@ export default class HolbertonCourse {
   }
 
   set students(newStudents) {
-    if (!Array.isArray(newStudents)) {
+    if (Array.isArray(newStudents)) {
+      newStudents.forEach((element) => {
+        if (typeof element !== 'string') {
+          throw new TypeError('Each element of students must be a string');
+        }
+      });
+      this._students = newStudents;
+    } else {
       throw new Error('Students must be an array');
     }
-    this._students = newStudents;
   }
 
   get students() {
