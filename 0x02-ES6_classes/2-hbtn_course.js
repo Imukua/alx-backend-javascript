@@ -1,9 +1,5 @@
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    if (!Array.isArray(students)) {
-      throw new Error('Students is not an array');
-    }
-
     this._name = name;
     this._length = length;
     this._students = students;
